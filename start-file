@@ -1,0 +1,41 @@
+struct Room {
+    name: String,
+    text: String,
+    selections: Vec<Choices>
+}
+
+struct Choices {
+    target: vec<RoomID>, // More about this in a minute
+    message: Option<String> // What message, if any, to print when the doorway is traversed
+    // Any other info about the door would go here
+}
+
+struct Bag {
+    items: Vec<String>, // a vec holding every item collected by the player
+}
+
+#[derive(PartialEq, Eq, Clone, Copy)]
+struct RoomID(usize); // points to the index of a room from our list of rooms
+
+
+fn main() {
+    println!("Hello, cooking world!");
+
+    let rooms = [
+        Room{
+            name: "Kitchen".into(),
+            text: "You step into the pantry, the aroma of various ingredients surrounds you. Your choice of base flour will set the foundation for your cake. What will it be?".into(),
+            selections: vec![
+                Choices{target:RoomID(0), message:vec!["Reach for the all-purpose flour. A classic choice for a fluffy and light texture."]},
+                Choices{target:RoomID(1), message:vec!["Select the almond flour. A gluten-free option with a rich and nutty flavor."]}
+            ]
+        }
+
+    ]
+
+    use std::io;
+    use std:io::Write; // allows user input
+
+
+
+}
