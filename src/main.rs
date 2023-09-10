@@ -1,14 +1,13 @@
 struct Room {
     name: String,
     text: String,
-    selections: Vec<Choices>
+    selections: Vec<Choice>
 }
 
-struct Choices {
-    target: Vec<RoomID>, // More about this in a minute
+struct Choice {
+    target: RoomID,
     triggers: Vec<String>,
     message: Option<String> // What message, if any, to print when the doorway is traversed
-    // Any other info about the door would go here
 }
 
 struct Bag {
@@ -35,8 +34,8 @@ fn main() {
         text: "You step into the pantry, the aroma of various ingredients surrounds you. Your choice of base flour will set the foundation for your cake. Press 1 for wheat, and 2 for almond.".into(),
         selections: vec![
             // rename to Choice
-            Choice{target:RoomID(1), triggers:vec!["1".into()], message:vec!["Reach for the all-purpose flour. A classic choice for a fluffy and light texture."]},
-            Choice{target:RoomID(2), triggers:vec!["2".into()], message:vec!["Select the almond flour. A gluten-free option with a rich and nutty flavor."]}
+            Choice{target:RoomID(1), triggers:vec!["1".into()], message:Some("Reach for the all-purpose flour. A classic choice for a fluffy and light texture.".into())},
+            Choice{target:RoomID(2), triggers:vec!["2".into()], message:Some("Select the almond flour. A gluten-free option with a rich and nutty flavor.".into())}
         ]
     },
     
@@ -54,7 +53,7 @@ fn main() {
 
 ];
 
-    let end_room = [RoomID(1), RoomID(2)];
+    let end_rooms = [RoomID(1), RoomID(2)];
     let mut input = String::new();
 
     // What does this line accomplish?
@@ -77,10 +76,10 @@ fn main() {
             let input = input.trim();
             // choice is a value, its type --- result of fine is an option &choice
             if let Some(choice) = here.selections.iter().find(|d| d.triggers.iter().any(|t| *t == input)) {
-                if let Some(msg) = &selections.message {
+                if let Some(msg) = &choice.message {
                     println!("{}", msg);
                 }
-                at = door.target;
+                at = choice.target;
                 break;
             } else {
                 println!("You can't do that!");
