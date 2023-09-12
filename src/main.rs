@@ -23,27 +23,14 @@ fn main() {
     // Rooms or scenes
     let rooms = [
     Room{
-        name: "Kitchen Scene".into(),
-        text: "You step into the pantry, the aroma of various ingredients surrounds you. Your choice of base flour will set the foundation for your cake. Type 1 for wheat, and 2 for almond.".into(),
+        name: " ଘ(੭*ˊᵕˋ)੭* ੈ♡‧₊˚ Welcome! ⋆ ˚｡⋆୨♡୧⋆ ˚｡⋆".into(),
+        text: "You step into the kitchen, the aroma of various ingredients surrounds you. Your choice of base flour will set the foundation for your cake. 
+        Type '1' : All-purpose flour. 
+        Type '2' : Almond flour. ".into(),
         selections: vec![
             // rename to Choice
-            Choice{target:RoomID(1), triggers:vec!["1".into()], message:Some("Reach for the all-purpose flour. A classic choice for a fluffy and light texture.".into())},
-            Choice{target:RoomID(2), triggers:vec!["2".into()], message:Some("Select the almond flour. A gluten-free option with a rich and nutty flavor.".into())}
-        ]
-    },
-    
-    Room{
-        name: "Kitchen_scene2".into(),
-        text: "You chose flour, great choice! Type '1'to continue".into(),
-        selections: vec![]
-            Choice{target:RoomID(3), triggers:vec!["1".into()], message:None}
-    },
-
-    Room{
-        name: "Kitchen_scene2".into(),
-        text: "You chose almond flour, great choice! Type '1' to continue.".into(),
-        selections: vec![
-            Choice{target:RoomID(3), triggers:vec!["1".into()], message:None}
+            Choice{target:RoomID(1), triggers:vec!["1".into()], message:Some("You chose: all-purpose flour. A classic choice for a fluffy and light texture.".into())},
+            Choice{target:RoomID(1), triggers:vec!["2".into()], message:Some("You chose: almond flour. A gluten-free option with a rich and nutty flavor.".into())}
         ]
     },
 
@@ -54,9 +41,9 @@ fn main() {
         Type '2': Cocoa powder.
         Type '3': Grate some lemon zest.".into(),
         selections: vec![
-            Choice{target:RoomID(4), triggers:vec!["1".into()], message:Some("You chose: Vanilla extract. Sweet and aromatic!".into())},
-            Choice{target:RoomID(4), triggers:vec!["2".into()], message:Some("You chose: Cocoa powder. Deep and chocolaty!".into())},
-            Choice{target:RoomID(4), triggers:vec!["3".into()], message:Some("You chose: Grate some lemon zest. Fresh and zingy!".into())}
+            Choice{target:RoomID(2), triggers:vec!["1".into()], message:Some("You chose: Vanilla extract. Sweet and aromatic!".into())},
+            Choice{target:RoomID(2), triggers:vec!["2".into()], message:Some("You chose: Cocoa powder. Deep and chocolaty!".into())},
+            Choice{target:RoomID(2), triggers:vec!["3".into()], message:Some("You chose: Grate some lemon zest. Fresh and zingy!".into())}
         ]
     },
 
@@ -65,7 +52,7 @@ fn main() {
         text: "Cue elevator music! Mix mix mix up the batter! 
         Type 'mix' to continue".into(),
         selections: vec![
-            Choice{target:RoomID(5), triggers:vec!["mix".into()], message:Some("Throw in some chocolate chips.".into())},
+            Choice{target:RoomID(3), triggers:vec!["mix".into()], message:Some("Throw in some chocolate chips.".into())},
         ]
     },
 
@@ -76,9 +63,9 @@ fn main() {
         Type '2': Fresh Blueberries. 
         Type '3': Chopped Walnuts".into(),
         selections: vec![
-            Choice{target:RoomID(6), triggers:vec!["1".into()], message:Some("You chose: chocolate chips.".into())},
-            Choice{target:RoomID(6), triggers:vec!["2".into()], message:Some("You chose: fresh blueberries.".into())},
-            Choice{target:RoomID(6), triggers:vec!["3".into()], message:Some("You chose: chopped walnuts.".into())}
+            Choice{target:RoomID(4), triggers:vec!["1".into()], message:Some("You chose: chocolate chips.".into())},
+            Choice{target:RoomID(4), triggers:vec!["2".into()], message:Some("You chose: fresh blueberries.".into())},
+            Choice{target:RoomID(4), triggers:vec!["3".into()], message:Some("You chose: chopped walnuts.".into())}
         ]
     },
 
@@ -87,7 +74,7 @@ fn main() {
         text: "You slide cake into the oven to begin baking. The oven hums softly, awaiting your creation.
         Type 'bake' to continue".into(),
         selections: vec![
-            Choice{target:RoomID(7), triggers:vec!["bake".into()], message:Some("Your cake is now fully baked and smells amazing!".into())}
+            Choice{target:RoomID(5), triggers:vec!["bake".into()], message:Some("Your cake is now fully baked and smells amazing!".into())}
         ]
     },
 
@@ -98,9 +85,9 @@ fn main() {
         Type '2': Pipe some frosted flowers.
         Type '3': Cherry on top".into(),
         selections: vec![
-            Choice{target:RoomID(8), triggers:vec!["1".into()], message:Some("You chose: Add some strawberrries.".into())},
-            Choice{target:RoomID(9), triggers:vec!["2".into()], message:Some("You chose: Pipe some frosted flowers.".into())},
-            Choice{target:RoomID(10), triggers:vec!["3".into()], message:Some("You chose: Cherry on top.".into())},
+            Choice{target:RoomID(6), triggers:vec!["1".into()], message:Some("You chose: Add some strawberrries.".into())},
+            Choice{target:RoomID(7), triggers:vec!["2".into()], message:Some("You chose: Pipe some frosted flowers.".into())},
+            Choice{target:RoomID(8), triggers:vec!["3".into()], message:Some("You chose: Cherry on top.".into())},
         ]
 
     },
@@ -124,7 +111,7 @@ fn main() {
     }
     ];
 
-    let end_rooms = [RoomID(8),RoomID(9), RoomID(10)];
+    let end_rooms = [RoomID(6),RoomID(7), RoomID(8)];
     let mut input = String::new();
 
     // What does this line accomplish?
@@ -139,7 +126,7 @@ fn main() {
             break;
         }
         loop {
-            print!("What will you choose?\n>");
+            print!("Please type your selection ٩(ˊᗜˋ*)و ♡ \n>");
 
             io::stdout().flush().unwrap();
             input.clear();
