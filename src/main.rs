@@ -34,8 +34,9 @@ fn main() {
     
     Room{
         name: "Kitchen_scene2".into(),
-        text: "You chose flour, great choice!".into(),
+        text: "You chose flour, great choice! Type '1'to continue".into(),
         selections: vec![]
+            Choice{target:RoomID(3), triggers:vec!["1".into()], message:None}
     },
 
     Room{
