@@ -1,0 +1,9 @@
+[package]
+name = "cake-game"
+version = "0.1.0"
+authors = ['Xinyi Xu <xbxa2020@mymail.pomona.edu', 'Keyron Linarez <ksla2021@mymail.pomona.edu>']
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
